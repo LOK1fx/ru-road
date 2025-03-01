@@ -29,6 +29,12 @@ export class UsersService {
     return users;
   }
 
+  async findOneWithLogin(login: string): Promise<User | null> {
+    const user = await this.usersRepository.findOneBy({ login });
+    
+    return user;
+  }
+
   async findOne(id: number): Promise<User> {
     const user = await this.usersRepository.findOneByOrFail({ id });
 
